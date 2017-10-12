@@ -196,13 +196,13 @@ public:
     /** Text of message to send. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Server | Account Management Models")
         FString Message;
-    /** Defines all possible push attributes like message, title, icon, etc. Not fully supported for iOS devices. */
+    /** Defines all possible push attributes like message, title, icon, etc. Some parameters are device specific - please see the PushNotificationPackage documentation for details. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Server | Account Management Models")
         UPlayFabJsonObject* Package = nullptr;
     /** PlayFabId of the recipient of the push notification. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Server | Account Management Models")
         FString Recipient;
-    /** Subject of message to send (may not be displayed in all platforms. */
+    /** Subject of message to send (may not be displayed in all platforms) */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Server | Account Management Models")
         FString Subject;
     /** Target Platforms that should receive the Message or Package. If omitted, we will send to all available platforms. */
