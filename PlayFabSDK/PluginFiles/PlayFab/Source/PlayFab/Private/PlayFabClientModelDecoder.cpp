@@ -687,6 +687,25 @@ FClientCurrentGamesResult UPlayFabClientModelDecoder::decodeCurrentGamesResultRe
     return tempStruct;
 }
 
+FClientGameInfoResult UPlayFabClientModelDecoder::decodeGameInfoResultResponse(UPlayFabJsonObject* response)
+{
+	// Temp ustruct
+	FClientGameInfoResult tempStruct;
+
+	tempStruct.BuildVersion = !(response->HasField("BuildVersion")) ? TEXT("") : response->GetStringField("BuildVersion");
+	tempStruct.EndTime = !(response->HasField("EndTime")) ? TEXT("") : response->GetStringField("EndTime");
+	tempStruct.LobbyId = !(response->HasField("LobbyId")) ? TEXT("") : response->GetStringField("LobbyId");
+	tempStruct.Mode = !(response->HasField("Mode")) ? TEXT("") : response->GetStringField("Mode");
+	tempStruct.Players = !(response->HasField("Players")) ? TEXT("") : FString::Join(response->GetStringArrayField("Players"), TEXT(","));
+	GetEnumValueFromString<ERegion>(TEXT("ERegion"), response->GetStringField("Region"), tempStruct.Region);
+	tempStruct.ServerAddress = !(response->HasField("ServerAddress")) ? TEXT("") : response->GetStringField("ServerAddress");
+	tempStruct.ServerPort = !(response->HasField("ServerPort")) ? 0 : int(response->GetNumberField("ServerPort"));
+	tempStruct.StartTime = !(response->HasField("StartTime")) ? TEXT("") : response->GetStringField("StartTime");
+	tempStruct.TitleId = !(response->HasField("TitleId")) ? TEXT("") : response->GetStringField("TitleId");
+
+	return tempStruct;
+}
+
 FClientGameServerRegionsResult UPlayFabClientModelDecoder::decodeGameServerRegionsResultResponse(UPlayFabJsonObject* response)
 {
     // Temp ustruct
