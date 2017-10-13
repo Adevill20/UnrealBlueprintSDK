@@ -324,6 +324,10 @@ public:
     UFUNCTION(BlueprintCallable, Category = "PlayFab | Client | Matchmaking Models")
         static FClientCurrentGamesResult decodeCurrentGamesResultResponse(UPlayFabJsonObject* response);
 
+	/** Decode the GameInfoResult response object*/
+	UFUNCTION(BlueprintCallable, Category = "PlayFab | Client | Matchmaking Models")
+		static FClientGameInfoResult decodeGameInfoResultResponse(UPlayFabJsonObject* response);
+
     /** Decode the GameServerRegionsResult response object*/
     UFUNCTION(BlueprintCallable, Category = "PlayFab | Client | Matchmaking Models")
         static FClientGameServerRegionsResult decodeGameServerRegionsResultResponse(UPlayFabJsonObject* response);

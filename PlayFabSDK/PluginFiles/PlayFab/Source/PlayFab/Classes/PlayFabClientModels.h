@@ -1711,6 +1711,43 @@ public:
 };
 
 USTRUCT(BlueprintType)
+struct FClientGameInfoResult
+{
+	GENERATED_USTRUCT_BODY()
+public:
+	/** version identifier of the game server executable binary being run */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Client | Matchmaking Models")
+		FString BuildVersion;
+	/** time when Game Server Instance is currently scheduled to end */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Client | Matchmaking Models")
+		FString EndTime;
+	/** unique identifier of the lobby  */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Client | Matchmaking Models")
+		FString LobbyId;
+	/** game mode for this Game Server Instance */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Client | Matchmaking Models")
+		FString Mode;
+	/** array of unique PlayFab identifiers for users currently connected to this Game Server Instance */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Client | Matchmaking Models")
+		FString Players;
+	/** region in which the Game Server Instance is running */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Client | Matchmaking Models")
+		ERegion Region;
+	/** IP address for this Game Server Instance */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Client | Matchmaking Models")
+		FString ServerAddress;
+	/** communication port for this Game Server Instance */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Client | Matchmaking Models")
+		int32 ServerPort = 0;
+	/** time when the Game Server Instance was created */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Client | Matchmaking Models")
+		FString StartTime;
+	/** unique identifier of the Game Server Instance for this lobby */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayFab | Client | Matchmaking Models")
+		FString TitleId;
+};
+
+USTRUCT(BlueprintType)
 struct FClientGameServerRegionsRequest
 {
     GENERATED_USTRUCT_BODY()
